@@ -17,7 +17,7 @@ The wiki suggests [remastering the ISO](https://wiki.archlinux.org/title/ZFS#Cre
 
 ## How does it work?
 
-1. The development tools and archiso are installed. Instead of installing archiso directly, it installs install archiso-git from the AUR. This ensures that if there are unreleased fixes for ISO builds on the current rolling release, the build will still succeed.
+1. Build dependencies like base-devel and archiso are installed. Instead of installing archiso directly however, the script installs install archiso-git from the AUR. This ensures that if there are unreleased fixes for ISO builds on the current rolling release, the build will still succeed.
 2. The ZFS packages are built and saved to a local package repository that ArchISO can pull from.
 3. The ArchISO's default release engineering profile is copied to the script's working directory.
 4. The "linux" kernel package is replaced with "linux-lts" to ensure compatibility with ZFS.
@@ -29,7 +29,7 @@ The wiki suggests [remastering the ISO](https://wiki.archlinux.org/title/ZFS#Cre
 The script also handles importing GPG keys needed for package builds and caching the user's password so sudo doesn't prompt again.
 
 ## Usage
-Just clone this repository, and then run `build-archiso-with-zfs.sh` under **a regular user** with sudo privileges. If you want, you can also tell the script in a variable to include your own SSH public key so you don't need to rely on password authentication after booting the image.
+Just clone this repository, and then run `build-archiso-with-zfs.sh` under **a regular user** with sudo privileges. If you want, you can also tell the script (in a variable)[https://github.com/daichuanwu21/archiso-build-zfs/blob/b51159657ddc14451039c1e1407c46ee854a3ec1/build-archiso-with-zfs.sh#L33] to include your own SSH public key so you don't need to rely on password authentication after booting the image.
 
 ## Acknowledgements
 Thanks to lenhuppe on the Arch Linux forum for creating the post that inspired this script. https://bbs.archlinux.org/viewtopic.php?id=266385
